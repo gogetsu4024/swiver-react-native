@@ -32,25 +32,11 @@ const  routeMap = {
 
 }
 
-const  routeMap2 = {
-
-    ExampleScreen: {
-        screen: ExampleScreen,
-        navigationOptions: navOpt => ({
-            drawerLabel: ({ focused }) => (
-                <DrawerItem focused={focused} title="ExampleScreen" />
-            )
-        })
-    },
-}
 const DrawerNavigator  = createDrawerNavigator(
     routeMap,Menu
 
 );
-const DrawerNavigator2  = createDrawerNavigator(
-    routeMap2,Menu
 
-);
 
 
 const StackNavigator = createStackNavigator(
@@ -61,7 +47,6 @@ const StackNavigator = createStackNavigator(
     // The main application screen is our "ExampleScreen". Feel free to replace it with your
     // own screen and remove the example.
     MainScreen: DrawerNavigator,
-    MainScreen2: DrawerNavigator2,
 
   },
   {

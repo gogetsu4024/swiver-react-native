@@ -28,9 +28,6 @@ function navigate(routeName, params) {
     })
   )
 }
-function openDrawer(){
-    navigator.toggleDrawer();
-}
 /**
  * Call this function when you want to navigate to a specific route AND reset the navigation history.
  *

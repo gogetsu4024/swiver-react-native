@@ -1,6 +1,7 @@
 import React,{ useState,useEffect } from "react";
 import { DrawerItems } from "react-navigation";
 import { Images, Colors } from 'App/Theme'
+import styles from './MenuStyles'
 import {
   Animated,
   Text
@@ -11,7 +12,6 @@ import {
   StyleSheet,
   Dimensions,
   Image,
-  FlatList,
   TouchableOpacity
 } from "react-native";
 
@@ -33,68 +33,61 @@ const Drawer = props => {
     },
   ];
   const items2 = [
-      {
-    "key":"ExampleScreen",
-    "params":"undefined",
-    "routeName":"ExampleScreen"
-  },
+    {
+      "key":"ExampleScreen",
+      "params":"undefined",
+      "routeName":"ExampleScreen"
+    },
     {
       "key":"Splash",
       "params":"undefined",
       "routeName":"Splash"
     }
-    ];
+  ];
   let [menu, setMenu] = useState(props.items);
 
-    return(
-    <View style={{flex: 1 ,flexDirection: 'row'}} forceInset={{ top: 'always', horizontal: 'never' }}>
-      <View style={{ flex : 1, justifyContent: 'center', alignItems: 'center', backgroundColor: Colors.drawerFirstBarColor}}>
-        <View style={{flex : 0.15}}>
-          <TouchableOpacity onPress={() => {setMenu(items1)}}>
-            <Image style={{ width : 50, height :50}}  source={Images.company1} />
-            <Text style={{color: Colors.white}}> A Design </Text>
-          </TouchableOpacity>
+  return(
+      <View style={{flex: 1 ,flexDirection: 'row'}} forceInset={{ top: 'always', horizontal: 'never' }}>
+        <View style={styles.containerWrapper}>
+          <View style={{flex : 0.15}}>
+            <TouchableOpacity onPress={() => {setMenu(items1)}}>
+              <Image style={styles.imageSideMenu}  source={Images.company1} />
+              <Text style={{color: Colors.white}}> A Design </Text>
+            </TouchableOpacity>
+          </View>
+          <View style={{flex : 0.15}}>
+            <TouchableOpacity onPress={() => {setMenu(items2)}}>
+              <Image style={styles.imageSideMenu}  source={Images.company2} />
+              <Text style={{color: Colors.white}}> A Design </Text>
+            </TouchableOpacity>
+          </View>
+          <View style={{flex : 0.15}}>
+            <TouchableOpacity onPress={() => {}}>
+              <Image style={styles.imageSideMenu}  source={Images.addCompany} />
+            </TouchableOpacity>
+          </View>
         </View>
-        <View style={{flex : 0.15}}>
-          <TouchableOpacity onPress={() => {setMenu(items2)}}>
-            <Image style={{ width : 50, height :50}}  source={Images.company2} />
-            <Text style={{color: Colors.white}}> A Design </Text>
-          </TouchableOpacity>
-        </View>
-        <View style={{flex : 0.15}}>
-          <TouchableOpacity onPress={() => {}}>
-            <Image style={{ width : 50, height :50}}  source={Images.addCompany} />
-          </TouchableOpacity>
+
+        <View style={{flex :0.05 , backgroundColor : Colors.drawerSeperator}}/>
+
+        <View style={{flex: 2, backgroundColor: Colors.drawerSecondBarColor}}>
+
+          <View flex={0.05} style={styles.header}>
+            <Text style={styles.logoText}> UIX Design </Text>
+            <Text style={styles.logoSubText}>mail@mail.com</Text>
+          </View>
+
+          <View style={{flex :0.02 , backgroundColor : Colors.drawerSeperator}}/>
+
+          <View style={{flex : 3 } }>
+            <ScrollView showsVerticalScrollIndicator={false} style={{ flex: 1 }}>
+              <DrawerItems {...props} items={menu}  />
+            </ScrollView>
+          </View>
+
         </View>
       </View>
-      <View
-          style={{
-            flex :0.05 ,
-            backgroundColor : Colors.drawerSeperator
-          }}
-      />
-
-      <View style={{flex: 2, backgroundColor: Colors.drawerSecondBarColor}}>
-
-        <View flex={0.05} style={styles.header}>
-          <Text style={styles.logoText}> UIX Design </Text>
-          <Text style={styles.logoSubText}>mail@mail.com</Text>
-        </View>
-        <View
-            style={{
-              flex :0.02 ,
-              backgroundColor : Colors.drawerSeperator
-            }}
-        />
-        <View style={{flex : 3 } }>
-          <ScrollView showsVerticalScrollIndicator={false} style={{ flex: 1 }}>
-            <DrawerItems {...props} items={menu}  />
-          </ScrollView>
-        </View>
-
-      </View>
-    </View>
-    )
+  )
 };
 
 const Menu = {
@@ -125,30 +118,5 @@ const Menu = {
   }
 };
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-  },
-  header: {
-    backgroundColor: Colors.drawerSecondBarColor,
-    paddingBottom: 30,
-    paddingTop: 20,
-    justifyContent: 'center',
-    alignItems:  'center',
-  },
-  logoText: {
-    color: Colors.logoColor,
-    fontFamily: 'google_sans_bold',
-    fontSize: 26,
-    fontWeight: '300',
-  },
-  logoSubText: {
-    color: Colors.subLogoColor,
-    fontFamily: 'google_sans_bold',
-    fontSize: 15,
-    fontWeight: '300',
-  }
-
-});
 
 export default Menu;
