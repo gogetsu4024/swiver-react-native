@@ -27,7 +27,7 @@ const  routeMap = {
         })
     },
     Splash: {
-        screen: SplashScreen,
+        screen: Products,
         navigationOptions: navOpt => ({
             drawerLabel: ({ focused }) => (
                 <DrawerItem focused={focused} title="Splash" />

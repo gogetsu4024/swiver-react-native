@@ -37,6 +37,8 @@ target 'Boilerplate' do
 
   pod 'RNReanimated', :path => '../node_modules/react-native-reanimated'
 
+  pod 'RNGestureHandler', :path => '../node_modules/react-native-gesture-handler'
+
   target 'BoilerplateTests' do
     inherit! :search_paths
     # Pods for testing
