@@ -1,9 +1,11 @@
 import React from "react";
-import { createAppContainer, createStackNavigator } from 'react-navigation'
+import {createAppContainer, createMaterialTopTabNavigator, createStackNavigator} from 'react-navigation'
 
 import ExampleScreen from 'App/Containers/Example/ExampleScreen'
 import SplashScreen from 'App/Containers/SplashScreen/SplashScreen'
 import SignIn from 'App/Containers/SignIn/SignIn'
+import Products from 'App/Containers/Products/Products'
+import StepsIndicator from 'App/Containers/StepsIndicator/StepsIndicator'
 import { createDrawerNavigator,} from "react-navigation";
 import Menu from "./Menu";
 import DrawerItem from "./DrawerItems/DrawerItem";
@@ -12,6 +14,8 @@ import DrawerItem from "./DrawerItems/DrawerItem";
  *
  * @see https://reactnavigation.org/docs/en/hello-react-navigation.html#creating-a-stack-navigator
  */
+
+
 const  routeMap = {
 
     ExampleScreen: {
@@ -31,7 +35,7 @@ const  routeMap = {
         })
     }
 
-}
+};
 
 const DrawerNavigator  = createDrawerNavigator(
     routeMap,Menu
@@ -46,6 +50,7 @@ const StackNavigator = createStackNavigator(
     // See https://reactnavigation.org/docs/en/stack-navigator.html#routeconfigs
     SplashScreen: SplashScreen,
       SignIn : SignIn,
+      StepsIndicator : StepsIndicator,
     // The main application screen is our "ExampleScreen". Feel free to replace it with your
     // own screen and remove the example.
     MainScreen: DrawerNavigator,
