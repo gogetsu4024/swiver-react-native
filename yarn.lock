@@ -5713,6 +5713,13 @@ react-native-keyboard-aware-scroll-view@^0.9.2:
     prop-types "^15.6.2"
     react-native-iphone-x-helper "^1.0.3"
 
+react-native-navbar@^2.1.0:
+  version "2.1.0"
+  resolved "https://registry.yarnpkg.com/react-native-navbar/-/react-native-navbar-2.1.0.tgz#4f21e947501ce5cf4563a29914cb3192db35a647"
+  integrity sha512-hvETP5lgBbokmTHNMuHdlG6LRqDyXGJb8eiTuxmZ0RSHTsDbGBkxrSBdS9PIA+dizej8Ql9tBQFf6e0QDNG/WA==
+  dependencies:
+    prop-types "^15.5.10"
+
 react-native-paper@^4.0.1:
   version "4.0.1"
   resolved "https://registry.yarnpkg.com/react-native-paper/-/react-native-paper-4.0.1.tgz#13d2272757fb738113582e900787f365cfa77c74"
