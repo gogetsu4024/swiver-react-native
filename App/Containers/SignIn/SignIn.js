@@ -40,7 +40,7 @@ export default class SignIn extends Component<Props> {
 
         <Text style={styles.textFloat}>Mot de passe oublié ? </Text>
 
-        <TouchableOpacity style={styles.button}>
+        <TouchableOpacity onPress={() => {this.props.navigation.navigate('MainScreen')}} style={styles.button}>
           <Text style={{color: 'white', fontSize: 16, alignSelf: 'center'}}>S'IDENTIFIER</Text>
         </TouchableOpacity>
 

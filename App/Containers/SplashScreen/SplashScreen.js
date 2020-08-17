@@ -33,7 +33,7 @@ export default class SplashScreen extends React.Component {
             }),
         ]).start(() => {
             // Go to authentication screen after delay
-            setTimeout(() => this.props.navigation.navigate('MainScreen'), 1500);
+            setTimeout(() => this.props.navigation.navigate('SignIn'), 1500);
         });
     }
 
