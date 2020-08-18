@@ -8,7 +8,8 @@
 export default {
   // Example colors:
   white: '#ffffff',
-  primary: '#007bff',
+  primary: '#0288D1',
+  lightGrey: '#BDBDBD',
   success: '#28a745',
   background: '#1F0808',
   clear: 'rgba(0,0,0,0)',

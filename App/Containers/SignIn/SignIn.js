@@ -46,7 +46,12 @@ export default class SignIn extends Component<Props> {
                 </TouchableOpacity>
 
                 <Text style = {{alignSelf: 'center', marginVertical: 10}}>Vous n'avez pas de compte?</Text>
-                <Text style = {{alignSelf: 'center', color: '#4c87cd'}}>S'INSCRIRE</Text>
+                <TouchableOpacity onPress={() => {this.props.navigation.navigate('Signup')}}>
+                    <Text style = {{alignSelf: 'center', color: '#4c87cd'}}>S'INSCRIRE</Text>
+                </TouchableOpacity>
+
+
+
 
                 <Text style = {styles.text}>En continuant, vous acceptez les <B>conditions d'utilisation</B> et la <B>politique de confidentialité</B> de Swiver</Text>
                 </View>
@@ -55,4 +60,3 @@ export default class SignIn extends Component<Props> {
         );
     }
 }
-
