@@ -10,26 +10,26 @@ import Enterprise from './Enterprise';
 import Phone from './Phone';
 
 const indicatorStyles = {
-  stepIndicatorSize: 55,
-  currentStepIndicatorSize: 65,
+  stepIndicatorSize: 45,
+  currentStepIndicatorSize: 55,
   separatorStrokeWidth: 1,
   currentStepStrokeWidth: 3,
   stepStrokeCurrentColor: Colors.primary,
   stepStrokeWidth: 2,
   separatorStrokeFinishedWidth: 2.5,
   stepStrokeFinishedColor: Colors.primary,
-  stepStrokeUnFinishedColor: '#aaaaaa',
+  stepStrokeUnFinishedColor: Colors.lightGrey,
   separatorFinishedColor: Colors.primary,
-  separatorUnFinishedColor: '#aaaaaa',
+  separatorUnFinishedColor: Colors.lightGrey,
   stepIndicatorFinishedColor: Colors.primary,
   stepIndicatorUnFinishedColor: '#ffffff',
   stepIndicatorCurrentColor: '#ffffff',
   stepIndicatorLabelCurrentColor: Colors.primary,
   stepIndicatorLabelFinishedColor: '#ffffff',
-  stepIndicatorLabelUnFinishedColor: '#aaaaaa',
+  stepIndicatorLabelUnFinishedColor: Colors.lightGrey,
   labelColor: '#999999',
-  labelSize: 16,
-  currentStepLabelColor: '#4c87cd'
+  labelSize: 15,
+  currentStepLabelColor: Colors.primary
 }
 
 const stepCount = 3;
@@ -37,7 +37,7 @@ const getStepIndicatorIconConfig = ({ position, stepStatus }) => {
   const iconConfig = {
     name: 'feed',
     color: stepStatus === 'finished' ? '#ffffff' : Colors.primary,
-    size:  stepStatus === 'finished' ? 30: 34
+    size:  stepStatus === 'finished' ? 20: 24
   }
   switch (position) {
     case 0: {
