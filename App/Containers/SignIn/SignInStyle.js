@@ -1,39 +1,44 @@
 import { StyleSheet } from 'react-native'
+import { Colors } from 'App/Theme'
 
 export default StyleSheet.create({
     container: {
         justifyContent: 'center',
         flex: 1,
-        padding: 20,
+        padding: 30,
         backgroundColor: 'white'
     },
     text: {
-        paddingTop : 30,
-        fontSize: 13.5,
-        alignSelf: 'center',
-        textAlign: 'center',
+      position: 'absolute',
+      bottom: 20,
+      fontSize: 12,
+      alignSelf: 'center',
+      textAlign: 'center',
     },
     header : {
-        fontSize: 30,
+        fontSize: 34,
         fontWeight: 'bold',
-        color: '#4c87cd',
+        color: Colors.primary,
     },
     textFloat : {
-        marginVertical: 20,
-        alignSelf: 'flex-end',
-        color: '#4c87cd',
+      fontSize: 16,
+      marginVertical: 20,
+      alignSelf: 'flex-end',
+      color: Colors.primary,
     },
     logo: {
-        width: 100,
-        height: 70,
-        alignSelf: 'center',
+      position: 'absolute',
+      top: 20,
+      width: 124,
+      height: 25.4,
+      alignSelf: 'center',
     },
     button: {
-        marginVertical: 20,
+        marginVertical: 30,
         justifyContent: "center",
-        backgroundColor: '#4c87cd',
+        backgroundColor: Colors.primary,
         padding: 10,
         borderRadius: 2,
-        height: 50
+        height: 57
     },
 });
