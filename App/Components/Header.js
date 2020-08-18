@@ -11,7 +11,7 @@ const Header = ({ navigation, title }) => {
       <View style={styles.header}>
         {/* icon for the menu */}
         <TouchableOpacity onPress={openMenu} style={styles.icons}>
-          <Icon name="home" size={30} color= {Colors.drawerItemLogoColor} />
+          <Icon name="home" size={30} color="white"  />
         </TouchableOpacity>
         <View style={styles.headerTitle}>
           <Text style={styles.headerText}>{title}</Text>
@@ -27,7 +27,7 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     alignContent: "center",
     justifyContent: "center",
-    backgroundColor: Colors.columbiaBlue
+    backgroundColor: Colors.headerColor
   },
   headerTitle: {
     flexDirection: "row",

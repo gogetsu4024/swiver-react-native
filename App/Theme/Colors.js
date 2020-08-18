@@ -48,5 +48,6 @@ export default {
   drawerFirstBarColor : "#212429",
   drawerSecondBarColor: "#1A1D22",
   drawerItemLogoColor : "#CFD2D6",
-  splashBackground : "#2A2F43"
+  splashBackground : "#2A2F43",
+  headerColor: "#0288D1"
 }
