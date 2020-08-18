@@ -21,7 +21,7 @@ export default class Personal extends Component {
     const B = (props) => <Text style={{fontWeight: 'bold', fontSize: 12}}>{props.children}</Text>
 
     return (
-        <KeyboardAwareScrollView>
+
       <View style={styles.container}>
 
         <Image style = {styles.logo} source= {Images.logo} resizeMode= 'contain' />
@@ -68,7 +68,6 @@ export default class Personal extends Component {
 
 
       </View>
-        </KeyboardAwareScrollView>
     );
   }
   }

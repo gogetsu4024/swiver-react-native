@@ -9,10 +9,9 @@ container: {
   backgroundColor: 'white'
 },
 subContainer: {
-  flex: 0.73,
+  flex: 0.63,
   flexDirection: 'column',
   justifyContent: 'space-between',
-  marginBottom: 20
 },
 text: {
   fontSize: 12,
@@ -30,11 +29,11 @@ logo: {
   alignSelf: 'center',
 },
 button: {
+  marginTop: 10,
   justifyContent: "center",
   backgroundColor: Colors.primary,
   padding: 10,
   borderRadius: 4,
-  height: 50,
-  marginTop: 10
+  height: 57,
 },
 });
