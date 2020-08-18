@@ -25,7 +25,8 @@ header : {
 },
 logo: {
   flex: 0.05,
-  width: 130,
+  width: 124,
+  height: 25.4,
   alignSelf: 'center',
 },
 button: {
