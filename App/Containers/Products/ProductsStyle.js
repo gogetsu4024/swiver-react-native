@@ -14,6 +14,7 @@ const styles = StyleSheet.create({
         backgroundColor:"#B1B1B1",
         alignSelf: "center",
         marginTop:20,
+        marginBottom:20,
         borderRadius: 6
     },
     topScrollView :{

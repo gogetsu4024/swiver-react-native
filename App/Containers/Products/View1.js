@@ -2,8 +2,9 @@ import React from 'react'
 import {Text, View} from "react-native";
 import styles from "./ProductsStyle";
 import {ScrollView} from "react-navigation";
-import {Avatar, Card} from "react-native-paper";
+import {Avatar, Card,Divider} from "react-native-paper";
 import CardProduct from "App/Components/Cards/CardProduct"
+import CardFlatList from "App/Components/Cards/CardFlatList"
 
 
 const LeftContent = props => <Avatar.Icon {...props} size={36} icon="folder" />
@@ -30,31 +31,20 @@ const FirstRoute = () => (
 
                 </View>
 
-
-                <Card style={{flex: 2}}>
-                    <Card.Title title="Card Title" subtitle="Card Subtitle" left={LeftContent} />
-
-                </Card>
-                <Card style={{flex: 2}}>
-                    <Card.Title title="Card Title" subtitle="Card Subtitle" left={LeftContent} />
-
-                </Card>
-                <Card style={{flex: 2}}>
-                    <Card.Title title="Card Title" subtitle="Card Subtitle" left={LeftContent} />
-
-                </Card>
-                <Card style={{flex: 2}}>
-                    <Card.Title title="Card Title" subtitle="Card Subtitle" left={LeftContent} />
-
-                </Card>
-                <Card style={{flex: 2}}>
-                    <Card.Title title="Card Title" subtitle="Card Subtitle" left={LeftContent} />
-
-                </Card>
-                <Card style={{flex: 2}}>
-                    <Card.Title title="Card Title" subtitle="Card Subtitle" left={LeftContent} />
-
-                </Card>
+                <CardFlatList/>
+                <Divider/>
+                <CardFlatList/>
+                <Divider/>
+                <CardFlatList/>
+                <Divider/>
+                <CardFlatList/>
+                <Divider/>
+                <CardFlatList/>
+                <Divider/>
+                <CardFlatList/>
+                <Divider/>
+                <CardFlatList/>
+                <Divider/>
 
             </ScrollView>
         </Card>
