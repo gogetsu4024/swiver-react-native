@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { AppRegistry, StyleSheet, View, Text, Animated } from 'react-native'
+import {  View } from 'react-native'
 import ViewPager from '@react-native-community/viewpager';
 
 import StepIndicator from 'react-native-step-indicator';

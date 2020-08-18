@@ -3,7 +3,6 @@ import {Avatar} from "react-native-paper";
 import {StyleSheet, Text, View} from "react-native";
 import Icon from 'react-native-vector-icons/AntDesign';
 
-import Header from "../Header";
 
 
 

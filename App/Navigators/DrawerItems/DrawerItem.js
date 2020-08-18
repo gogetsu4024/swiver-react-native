@@ -2,8 +2,6 @@ import React from 'react';
 import { View,StyleSheet,Text } from "react-native";
 import Icon from 'react-native-vector-icons/FontAwesome';
 import MatIcon from 'react-native-vector-icons/MaterialCommunityIcons';
-import Icon5 from 'react-native-vector-icons/FontAwesome5';
-import Entypo from 'react-native-vector-icons/Entypo';
 
 import { Colors } from 'App/Theme'
 

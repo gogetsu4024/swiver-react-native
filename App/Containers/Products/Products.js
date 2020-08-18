@@ -1,24 +1,15 @@
 import React from 'react'
-import { Images, Colors } from 'App/Theme'
+import {  Colors } from 'App/Theme'
 import {
-    View,
-    Text,
     Dimensions,
-    StyleSheet,
-    Animated,
-    ActivityIndicator,
 } from 'react-native';
-import StepsIndicator from 'App/Containers/StepsIndicator/StepsIndicator'
 import {
     TabView,
     TabBar,
     SceneMap,
-    NavigationState,
     SceneRendererProps,
 } from 'react-native-tab-view';
 import Icon from 'react-native-vector-icons/AntDesign';
-import { Avatar, Button, Card, Title, Paragraph } from 'react-native-paper';
-import {ScrollView} from "react-navigation";
 import styles from './ProductsStyle'
 import FirstRoute from './View1'
 import SecondRoute from './View2'

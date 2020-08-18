@@ -1,5 +1,5 @@
 import React from "react";
-import {createAppContainer, createMaterialTopTabNavigator, createStackNavigator} from 'react-navigation'
+import {createAppContainer, createStackNavigator} from 'react-navigation'
 
 import SplashScreen from 'App/Containers/SplashScreen/SplashScreen'
 import SignIn from 'App/Containers/SignIn/SignIn'
@@ -53,7 +53,7 @@ const StackNavigator = createStackNavigator(
         // See https://reactnavigation.org/docs/en/stack-navigator.html#routeconfigs
         SplashScreen: SplashScreen,
         SignIn: SignIn,
-        Signup: Signup, 
+        Signup: Signup,
         StepsIndicator : StepsIndicator,
         // The main application screen is our "ExampleScreen". Feel free to replace it with your
         // own screen and remove the example.

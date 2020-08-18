@@ -2,14 +2,12 @@ import React, { Component } from 'react'
 import {
   View,
   Text,
-  StyleSheet,
   TouchableOpacity,
   Image,
 } from 'react-native';
 import { Images, Colors } from 'App/Theme'
 import { TextInput } from 'react-native-paper';
 import styles from './EnterpriseStyle';
-import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view'
 
 export default class Enterprise extends Component {
 

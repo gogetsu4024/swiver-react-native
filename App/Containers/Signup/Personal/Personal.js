@@ -9,7 +9,6 @@ import {
 import { Images, Colors } from 'App/Theme'
 import { TextInput } from 'react-native-paper';
 import styles from './PersonalStyle';
-import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view'
 
 export default class Personal extends Component {
 

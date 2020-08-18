@@ -1,14 +1,12 @@
 import React from 'react'
 import styles from './SplashScreenStyle'
-import { Images, Colors } from 'App/Theme'
+import { Images } from 'App/Theme'
 
 import {
     View,
     Text,
     Image,
-    StyleSheet,
     Animated,
-    ActivityIndicator,
 } from 'react-native';
 
 export default class SplashScreen extends React.Component {
