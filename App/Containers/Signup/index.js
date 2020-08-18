@@ -5,32 +5,11 @@ import ViewPager from '@react-native-community/viewpager';
 import StepIndicator from 'react-native-step-indicator';
 import Icon from 'react-native-vector-icons/Entypo';
 import { Colors } from 'App/Theme'
-import Personal from './Personal';
-import Enterprise from './Enterprise';
-import Phone from './Phone';
-
-const indicatorStyles = {
-  stepIndicatorSize: 45,
-  currentStepIndicatorSize: 55,
-  separatorStrokeWidth: 1,
-  currentStepStrokeWidth: 3,
-  stepStrokeCurrentColor: Colors.primary,
-  stepStrokeWidth: 2,
-  separatorStrokeFinishedWidth: 2.5,
-  stepStrokeFinishedColor: Colors.primary,
-  stepStrokeUnFinishedColor: Colors.lightGrey,
-  separatorFinishedColor: Colors.primary,
-  separatorUnFinishedColor: Colors.lightGrey,
-  stepIndicatorFinishedColor: Colors.primary,
-  stepIndicatorUnFinishedColor: '#ffffff',
-  stepIndicatorCurrentColor: '#ffffff',
-  stepIndicatorLabelCurrentColor: Colors.primary,
-  stepIndicatorLabelFinishedColor: '#ffffff',
-  stepIndicatorLabelUnFinishedColor: Colors.lightGrey,
-  labelColor: '#999999',
-  labelSize: 15,
-  currentStepLabelColor: Colors.primary
-}
+import Personal from './Personal/Personal';
+import Enterprise from './Enterprise/Enterprise';
+import Phone from './Phone/Phone';
+import styles from './indexStyle'
+import indicatorStyles from './IndicatorStyle'
 
 const stepCount = 3;
 const getStepIndicatorIconConfig = ({ position, stepStatus }) => {
@@ -123,23 +102,3 @@ export default class Signup extends Component {
   )
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#ffffff'
-  },
-  stepIndicator: {
-    marginVertical: 10
-  },
-  page: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center'
-  },
-  stepLabel: {
-    fontSize: 12,
-    textAlign: 'center',
-    fontWeight: '500',
-    color: '#999999'
-  }
-})

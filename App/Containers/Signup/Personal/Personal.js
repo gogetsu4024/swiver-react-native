@@ -9,6 +9,7 @@ import {
 import { Images, Colors } from 'App/Theme'
 import { TextInput } from 'react-native-paper';
 import styles from './PersonalStyle';
+import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view'
 
 export default class Personal extends Component {
 
@@ -20,6 +21,7 @@ export default class Personal extends Component {
     const B = (props) => <Text style={{fontWeight: 'bold', fontSize: 12}}>{props.children}</Text>
 
     return (
+        <KeyboardAwareScrollView>
       <View style={styles.container}>
 
         <Image style = {styles.logo} source= {Images.logo} resizeMode= 'contain' />
@@ -66,6 +68,7 @@ export default class Personal extends Component {
 
 
       </View>
+        </KeyboardAwareScrollView>
     );
   }
   }
