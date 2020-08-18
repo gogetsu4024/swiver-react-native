@@ -103,7 +103,7 @@ export default class Signup extends Component {
       </ViewPager>
       <View style={styles.stepIndicator}>
         <StepIndicator
-        stepCount={3}
+          stepCount={3}
           renderStepIndicator={this.renderStepIndicator}
           customStyles={indicatorStyles}
           currentPosition={this.state.currentPage}

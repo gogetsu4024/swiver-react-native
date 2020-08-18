@@ -8,14 +8,14 @@ container: {
   justifyContent: 'space-between',
   backgroundColor: 'white'
 },
-inputContainer: {
-  flex: 1,
+subContainer: {
+  flex: 0.73,
   flexDirection: 'column',
   justifyContent: 'space-between',
   marginBottom: 20
 },
 text: {
-  fontSize: 13,
+  fontSize: 12,
   alignSelf: 'center',
   textAlign: 'center',
 },
@@ -25,15 +25,16 @@ header : {
   color: Colors.primary,
 },
 logo: {
-  flex: 0.2,
- width: 130,
- alignSelf: 'center',
+  flex: 0.05,
+  width: 130,
+  alignSelf: 'center',
 },
 button: {
- justifyContent: "center",
- backgroundColor: Colors.primary,
- padding: 10,
- borderRadius: 4,
- height: 57
+  justifyContent: "center",
+  backgroundColor: Colors.primary,
+  padding: 10,
+  borderRadius: 4,
+  height: 50,
+  marginTop: 10
 },
 });
