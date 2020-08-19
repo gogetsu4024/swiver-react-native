@@ -32,7 +32,7 @@ const actions = [
 const LeftContent = props => <Avatar.Icon {...props} size={36} icon="folder" />
 
 const FirstRoute = () => (
-    <View style={styles.scene}>
+    <ScrollView style={styles.scene}>
 
         <View style={{flex:0.3,marginTop:10,marginBottom:10}}>
             <Text style={{marginLeft:20,color: "#797DA0"}}>Recent</Text>
@@ -79,7 +79,7 @@ const FirstRoute = () => (
 
 
 
-    </View>
+    </ScrollView>
 
 );
 export default FirstRoute;
