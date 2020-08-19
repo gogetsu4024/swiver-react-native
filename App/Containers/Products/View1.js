@@ -32,7 +32,8 @@ const actions = [
 const LeftContent = props => <Avatar.Icon {...props} size={36} icon="folder" />
 
 const FirstRoute = () => (
-    <ScrollView style={styles.scene}>
+    <View style={styles.scene}>
+    <ScrollView >
 
         <View style={{flex:0.3,marginTop:10,marginBottom:10}}>
             <Text style={{marginLeft:20,color: "#797DA0"}}>Recent</Text>
@@ -69,17 +70,18 @@ const FirstRoute = () => (
                 <Divider/>
 
             </ScrollView>
-            <FloatingAction
-                actions={actions}
-                onPressItem={name => {
-                    console.log(`selected button: ${name}`);
-                }}
-            />
+
         </Card>
 
 
 
     </ScrollView>
-
+        <FloatingAction
+            actions={actions}
+            onPressItem={name => {
+                console.log(`selected button: ${name}`);
+            }}
+        />
+    </View>
 );
 export default FirstRoute;
