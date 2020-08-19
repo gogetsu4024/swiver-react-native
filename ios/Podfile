@@ -1,8 +1,8 @@
 platform :ios, '9.0'
 require_relative '../node_modules/@react-native-community/cli-platform-ios/native_modules'
 
-target 'Boilerplate' do
-  # Pods for Boilerplate
+target 'Swiver' do
+  # Pods for Swiver
   pod 'FBLazyVector', :path => "../node_modules/react-native/Libraries/FBLazyVector"
   pod 'FBReactNativeSpec', :path => "../node_modules/react-native/Libraries/FBReactNativeSpec"
   pod 'RCTRequired', :path => "../node_modules/react-native/Libraries/RCTRequired"
@@ -39,15 +39,15 @@ target 'Boilerplate' do
 
   pod 'RNGestureHandler', :path => '../node_modules/react-native-gesture-handler'
 
-  target 'BoilerplateTests' do
+  target 'SwiverTests' do
     inherit! :search_paths
     # Pods for testing
   end
   use_native_modules!
 end
-target 'Boilerplate-tvOS' do
-  # Pods for Boilerplate-tvOS
-  target 'Boilerplate-tvOSTests' do
+target 'Swiver-tvOS' do
+  # Pods for Swiver-tvOS
+  target 'Swiver-tvOSTests' do
     inherit! :search_paths
     # Pods for testing
   end
