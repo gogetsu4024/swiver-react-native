@@ -10,7 +10,7 @@ const ExampleStack = createStackNavigator({
         navigationOptions: ({ navigation }) => {
             return {
                 header: () => (
-                    <Header title="ExampleScreen" hasBackButton={false} navigation={navigation} />
+                    <Header title = "ExampleScreen" hasBackButton={false} navigation={navigation} />
                 )
             };
         }
