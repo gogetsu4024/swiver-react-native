@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState, useEffect } from "react";
 import {Text, View} from "react-native";
 import styles from "./ProductsStyle";
 import {FloatingAction} from "react-native-floating-action";
@@ -16,8 +16,9 @@ import { Dimensions } from "react-native";
 
 
 
-const screenWidth = Dimensions.get("window").width;
 
+const window = Dimensions.get("window");
+const screen = Dimensions.get("screen");
 
 const actions = [
     {
@@ -42,7 +43,20 @@ const actions = [
 
 
 
-const SecondRoute = () => (
+const SecondRoute = () => {
+    const [dimensions, setDimensions] = useState({ window, screen });
+    const onChange = ({ window, screen }) => {
+        setDimensions({ window, screen });
+    };
+
+    useEffect(() => {
+        Dimensions.addEventListener("change", onChange);
+        return () => {
+            Dimensions.removeEventListener("change", onChange);
+        };
+    });
+
+    return(
     <View style={styles.scene}>
 
         <ScrollView >
@@ -92,7 +106,7 @@ const SecondRoute = () => (
                 <View >
                     <LineChart
                         data={data}
-                        width={screenWidth -20}
+                        width={Dimensions.get('window').width -20}
                         height={220}
                         chartConfig={ChartConfig}
                         bezier
@@ -110,6 +124,7 @@ const SecondRoute = () => (
             }}
         />
     </View>
-);
+)
+};
 
 export default SecondRoute;
