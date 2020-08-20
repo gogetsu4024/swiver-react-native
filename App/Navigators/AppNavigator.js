@@ -21,19 +21,20 @@ import ExampleStack from './RoutesStacks/ExampleStack'
 
 const  routeMap = {
 
-    ExampleScreen: {
-        screen: ExampleStack,
-        navigationOptions: navOpt => ({
-            drawerLabel: ({ focused }) => (
-                <DrawerItem focused={focused} title="ExampleScreen" />
-            )
-        }),
-    },
+
     Splash: {
         screen: ProductStack,
         navigationOptions: navOpt => ({
             drawerLabel: ({ focused }) => (
                 <DrawerItem focused={focused} title="Splash" />
+            )
+        }),
+    },
+    ExampleScreen: {
+        screen: ExampleStack,
+        navigationOptions: navOpt => ({
+            drawerLabel: ({ focused }) => (
+                <DrawerItem focused={focused} title="ExampleScreen" />
             )
         }),
     }
