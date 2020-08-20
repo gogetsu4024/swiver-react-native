@@ -1,7 +1,7 @@
 import React from "react";
 import {createStackNavigator} from "react-navigation";
 import ExampleScreen from 'App/Containers/Example/ExampleScreen'
-import Header from "App/Components/Header"
+import Header from "App/Components/Header/Header"
 
 
 const ExampleStack = createStackNavigator({
