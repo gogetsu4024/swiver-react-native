@@ -11,9 +11,21 @@ import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view
 import { TextInput } from 'react-native-paper';
 import { Images, Colors } from 'App/Theme'
 import styles from './SignInStyle'
+import {connect} from "react-redux";
 type Props = {};
 
-export default class SignIn extends Component<Props> {
+import SingInActions from 'App/Stores/SignIn/Actions'
+
+
+
+class SignIn extends Component<Props> {
+
+
+
+    _login() {
+        this.props.login()
+    }
+
     render() {
         const B = (props) => <Text style={{fontWeight: 'bold', fontSize: 12}}>{props.children}</Text>
 
@@ -39,9 +51,9 @@ export default class SignIn extends Component<Props> {
                       mode='outlined'
                       label='Password'
                   />
-                  <Text style={styles.textFloat}>Mot de passe oublié ? </Text>
+                  <Text style={styles.textFloat}>{this.props.tokens.token }Mot de passe oublié ? </Text>
 
-                  <TouchableOpacity onPress={() => {this.props.navigation.navigate('StepsIndicator')}} style={styles.button}>
+                  <TouchableOpacity onPress={() => {this._login()}} style={styles.button}>
                       <Text style={{color: 'white', fontSize: 16, alignSelf: 'center'}}>S'IDENTIFIER</Text>
                   </TouchableOpacity>
 
@@ -59,3 +71,17 @@ export default class SignIn extends Component<Props> {
         );
     }
 }
+const mapStateToProps = (state) => ({
+    tokens: state.signIn.tokens,
+    loginLoading: state.signIn.loginLoading,
+    loginErrorMessage: state.signIn.loginErrorMessage,
+});
+
+const mapDispatchToProps = (dispatch) => ({
+    login: () => dispatch(SingInActions.loginUser({username : '51868365',password : 'Cab_25725410'})),
+});
+
+export default connect(
+    mapStateToProps,
+    mapDispatchToProps
+)(SignIn)
