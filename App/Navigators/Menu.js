@@ -20,7 +20,6 @@ const { width } = Dimensions.get("screen");
 
 
 
-
 const Drawer = props => {
 
 
@@ -34,38 +33,17 @@ const Drawer = props => {
   ];
   const items2 = [
     {
-      "key":"Tableau de bord",
+      "key":"ExampleScreen",
       "params":"undefined",
       "routeName":"ExampleScreen"
     },
     {
-      "key":"Vente",
+      "key":"Splash",
       "params":"undefined",
       "routeName":"Splash"
-    },
-    {
-      "key":"Achat",
-      "params":"undefined",
-      "routeName":"Splash"
-    },
-    {
-      "key":"Client",
-      "params":"undefined",
-      "routeName":"Splash"
-    },
-    {
-      "key":"Fournisseur",
-      "params":"undefined",
-      "routeName":"Splash"
-    },
-    {
-      "key":"Produit et service",
-      "params":"undefined",
-      "routeName":"Splash"
-    },
+    }
   ];
   let [menu, setMenu] = useState(props.items);
-
   return(
       <View style={{flex: 1 ,flexDirection: 'row'}} forceInset={{ top: 'always', horizontal: 'never' }}>
         <View style={styles.containerWrapper}>
@@ -102,6 +80,7 @@ const Drawer = props => {
           <View style={{flex : 3 } }>
             <ScrollView showsVerticalScrollIndicator={false} style={{ flex: 1 }}>
               <DrawerItems {...props} items={menu}  />
+
             </ScrollView>
           </View>
 

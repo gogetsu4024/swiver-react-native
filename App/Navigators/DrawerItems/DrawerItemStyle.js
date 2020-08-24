@@ -12,8 +12,8 @@ const styles = StyleSheet.create({
         backgroundColor: '#A3A5A7',
         borderRadius: 4
     },
-    textFocused: {color : Colors.silver},
-    textUnfocused: {color : Colors.blueViolet},
+    textFocused: {color : Colors.blueViolet,marginRight:100},
+    textUnfocused: {color : Colors.silver,marginRight:100},
     shadow: {
         shadowColor: Colors.silver,
         shadowOffset: {
