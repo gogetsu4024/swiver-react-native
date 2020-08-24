@@ -18,6 +18,7 @@ type Props = {};
 
 import SingInActions from 'App/Stores/SignIn/Actions'
 import  verifyToken from 'App/Utils/Jwt'
+import {PropTypes} from "prop-types";
 
 
 class SignIn extends Component<Props> {
@@ -37,7 +38,10 @@ class SignIn extends Component<Props> {
             Alert.alert(
                 'Error',
                 nextProps.loginErrorMessage,
-                [{ text: 'OK', onPress: () => console.log("yo") }],
+                [
+                    { text: 'OK', onPress: () => console.log("yo") },
+                    { text: 'clear', onPress: () => this.props.clearErrorMessage()/*console.log("yo")*/ }
+                ],
             );
         }
     }
@@ -103,6 +107,12 @@ class SignIn extends Component<Props> {
             </View>
         );
     }
+}
+SignIn.propTypes = {
+    tokens: PropTypes.object,
+    loginLoading: PropTypes.bool,
+    loginErrorMessage: PropTypes.string,
+    login: PropTypes.func,
 }
 const mapStateToProps = (state) => ({
     tokens: state.signIn.tokens,

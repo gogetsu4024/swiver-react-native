@@ -25,13 +25,18 @@ const styles = StyleSheet.create({
         color: '#fff',
         fontSize: 30,
         fontWeight: 'bold',
-        flex: 0.13,
+        textAlign: 'center',
+        marginRight: 20,
+        marginLeft: 20,
     },
     subText:{
         color: '#fff',
-        textAlign: 'center',
         fontSize: 20,
-        flex: 0.1
+        flex: 0.1,
+        textAlign: 'center',
+        marginTop:10,
+        marginRight: 20,
+        marginLeft: 20,
     },
     skipButton:{
         color: 'blue',
