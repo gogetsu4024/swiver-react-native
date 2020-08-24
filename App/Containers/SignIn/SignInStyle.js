@@ -26,6 +26,12 @@ export default StyleSheet.create({
       alignSelf: 'flex-end',
       color: Colors.primary,
     },
+    textError : {
+        fontSize: 24,
+        marginVertical: 20,
+        alignSelf: 'center',
+        color: Colors.error,
+    },
     logo: {
       position: 'absolute',
       top: 20,

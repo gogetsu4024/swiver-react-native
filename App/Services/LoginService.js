@@ -31,9 +31,12 @@ function loginUser(credentials) {
         if (in200s(response.status)) {
             return response.data
         }
-
         return null
     })
+        .catch(function (error) {
+            console.log(error);
+            return error;
+        })
    return null;
 }
 

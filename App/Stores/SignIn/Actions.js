@@ -10,6 +10,9 @@ const { Types, Creators } = createActions({
   loginUserSuccess: ['tokens'],
   // An error occurred
   loginUserFailure: ['errorMessage'],
+
+  clearErrorMessage: null,
+
 });
 
 export const SignInTypes = Types

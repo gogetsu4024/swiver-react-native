@@ -34,15 +34,35 @@ const Drawer = props => {
   ];
   const items2 = [
     {
-      "key":"ExampleScreen",
+      "key":"Tableau de bord",
       "params":"undefined",
       "routeName":"ExampleScreen"
     },
     {
-      "key":"Splash",
+      "key":"Vente",
       "params":"undefined",
       "routeName":"Splash"
-    }
+    },
+    {
+      "key":"Achat",
+      "params":"undefined",
+      "routeName":"Splash"
+    },
+    {
+      "key":"Client",
+      "params":"undefined",
+      "routeName":"Splash"
+    },
+    {
+      "key":"Fournisseur",
+      "params":"undefined",
+      "routeName":"Splash"
+    },
+    {
+      "key":"Produit et service",
+      "params":"undefined",
+      "routeName":"Splash"
+    },
   ];
   let [menu, setMenu] = useState(props.items);
 

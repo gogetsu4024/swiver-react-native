@@ -20,6 +20,7 @@ const persistConfig = {
    * Blacklist state that we do not need/want to persist
    */
   blacklist: [
+     // 'signIn',
     // 'auth',
   ],
 }

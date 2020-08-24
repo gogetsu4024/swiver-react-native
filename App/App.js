@@ -5,7 +5,7 @@ import createStore from 'App/Stores'
 import RootScreen from './Containers/Root/RootScreen'
 import { Provider as PaperProvider } from 'react-native-paper';
 import { ApplicationStyles } from 'App/Theme'
-
+import SplashScreen from 'App/Containers/SplashScreen/SplashScreen'
 const { store, persistor } = createStore()
 
 
