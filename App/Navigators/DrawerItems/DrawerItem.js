@@ -38,15 +38,16 @@ class DrawerItem extends React.Component {
 
     const containerStyles = [
       styles.defaultStyle,
+      {flex:1},
       focused ? [styles.activeStyle, styles.shadow] : null
     ];
 
     return (
         <View  style={containerStyles}>
-          <View middle flex={0.1} style={{ marginRight: 10 }}>
+          <View middle flex={0.2} style={{ marginRight: 10 }}>
             {this.renderIcon()}
           </View>
-          <View style={{flexDirection :'row' , alignContent: 'center', flex : 0.9}} >
+          <View style={{flexDirection :'row' , alignContent: 'center', flex : 0.8}} >
             <Text
                 style={focused ? styles.textFocused: styles.textUnfocused}
             >

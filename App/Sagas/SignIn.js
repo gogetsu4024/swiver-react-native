@@ -1,7 +1,7 @@
 import { put, call } from 'redux-saga/effects'
 import SignInActions from 'App/Stores/SignIn/Actions'
 import { loginService } from 'App/Services/LoginService'
-
+import NavigationService from 'App/Services/NavigationService'
 /**
  * A saga can contain multiple functions.
  *
@@ -16,12 +16,13 @@ export function* loginUser(action) {
     yield put(SignInActions.loginUserLoading())
 
     // Fetch user informations from an API
-    const tokens = yield call(loginService.loginUser,action.credentials)
-    if (tokens) {
-        yield put(SignInActions.loginUserSuccess(tokens))
+    const response = yield call(loginService.loginUser,action.credentials)
+    if (response.token) {
+        yield put(SignInActions.loginUserSuccess(response))
+        NavigationService.navigateAndReset('StepsIndicator')
     } else {
         yield put(
-            ExampleActions.loginUserFailure('There was an error while loggin you in.')
+            SignInActions.loginUserFailure(response.message)
         )
     }
 }
