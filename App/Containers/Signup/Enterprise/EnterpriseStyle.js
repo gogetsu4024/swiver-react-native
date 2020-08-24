@@ -9,7 +9,7 @@ container: {
   backgroundColor: 'white'
 },
 subContainer: {
-  flex: 0.73,
+  flex: 0.76,
   flexDirection: 'column',
   justifyContent: 'space-between',
 },
