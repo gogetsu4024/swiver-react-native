@@ -9,6 +9,8 @@ import { Images, Colors } from 'App/Theme'
 import { TextInput } from 'react-native-paper';
 import styles from './EnterpriseStyle';
 
+import TextDropdown from "App/Components/Dropdown/TextDropdown";
+
 export default class Enterprise extends Component {
 
   _onPress = () => {
@@ -39,29 +41,10 @@ export default class Enterprise extends Component {
           label='Activité de l&apos;entreprise'
           />
 
-          <TextInput
-          style={{height: 45}}
-          mode='outlined'
-          label='Pays'
-          />
+          <TextDropdown label={'Devise'}/>
 
-          <TextInput
-          style={{height: 45}}
-          mode='outlined'
-          label='Devise'
-          />
 
-          <TextInput
-          style={{height: 45}}
-          mode='outlined'
-          label='Région'
-          />
 
-          <TextInput
-          style={{height: 45}}
-          mode='outlined'
-          label='Code postal'
-          />
 
 
 
@@ -82,3 +65,29 @@ export default class Enterprise extends Component {
     );
   }
   }
+
+/*
+<TextInput
+style={{height: 45}}
+mode='outlined'
+label='Pays'
+/>
+
+<TextInput
+style={{height: 45}}
+mode='outlined'
+label='Devise'
+/>
+
+<TextInput
+style={{height: 45}}
+mode='outlined'
+label='Région'
+/>
+
+<TextInput
+style={{height: 45}}
+mode='outlined'
+label='Code postal'
+/>
+*/
