@@ -1,9 +1,5 @@
 import React from 'react'
 import { Platform, Text, View, Button, ActivityIndicator, Image } from 'react-native'
-import { connect } from 'react-redux'
-import { PropTypes } from 'prop-types'
-import ExampleActions from 'App/Stores/Example/Actions'
-import { liveInEurope } from 'App/Stores/Example/Selectors'
 import Style from './ExampleScreenStyle'
 import { ApplicationStyles, Helpers, Images, Metrics } from 'App/Theme'
 
@@ -21,7 +17,6 @@ const instructions = Platform.select({
 
 class ExampleScreen extends React.Component {
   componentDidMount() {
-   // this._fetchUser()
   }
 
   render() {
@@ -49,16 +44,14 @@ class ExampleScreen extends React.Component {
               <View>
                 <Text style={Style.result}>
                   {"I'm a fake user, my name is "}
-                  {this.props.user.name}
                 </Text>
                 <Text style={Style.result}>
-                  {this.props.liveInEurope ? 'I live in Europe !' : "I don't live in Europe."}
                 </Text>
               </View>
             )}
             <Button
               style={ApplicationStyles.button}
-              onPress={() => this._fetchUser()}
+              onPress={() => console.log("yes")}
               title="Refresh"
             />
           </View>
@@ -67,31 +60,7 @@ class ExampleScreen extends React.Component {
     )
   }
 
-  _fetchUser() {
-    this.props.fetchUser()
-  }
 }
 
-ExampleScreen.propTypes = {
-  user: PropTypes.object,
-  userIsLoading: PropTypes.bool,
-  userErrorMessage: PropTypes.string,
-  fetchUser: PropTypes.func,
-  liveInEurope: PropTypes.bool,
-}
 
-const mapStateToProps = (state) => ({
-  user: state.example.user,
-  userIsLoading: state.example.userIsLoading,
-  userErrorMessage: state.example.userErrorMessage,
-  liveInEurope: liveInEurope(state),
-})
-
-const mapDispatchToProps = (dispatch) => ({
-  fetchUser: () => dispatch(ExampleActions.fetchUser()),
-})
-
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(ExampleScreen)
+export default ExampleScreen

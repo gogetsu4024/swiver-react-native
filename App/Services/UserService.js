@@ -13,37 +13,33 @@ const in200s = isWithin(200, 299)
  *
  * Feel free to remove this example from your application.
  */
-const userApiClient = axios.create({
+const userApiClient =(token) => axios.create({
   /**
    * Import the config from the App/Config/index.js file
    */
-  baseURL: Config.API_URL,
+  baseURL: Config.SWIVER_URL,
   headers: {
+    authorization : 'Bearer '+token,
     Accept: 'application/json',
     'Content-Type': 'application/json',
   },
   timeout: 3000,
 })
 
-function fetchUser() {
+function fetchUserInformation(token) {
   // Simulate an error 50% of the time just for testing purposes
-  if (Math.random() > 0.5) {
-    return new Promise(function(resolve, reject) {
-      resolve(null)
-    })
-  }
 
-  let number = Math.floor(Math.random() / 0.1) + 1
-
-  return userApiClient.get(number.toString()).then((response) => {
+  return userApiClient(token).get('/secure/me').then((response) => {
     if (in200s(response.status)) {
       return response.data
     }
 
     return null
+  }).catch(function (error) {
+    return error;
   })
 }
 
 export const userService = {
-  fetchUser,
+  fetchUserInformation,
 }

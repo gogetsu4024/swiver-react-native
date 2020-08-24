@@ -32,12 +32,9 @@ function loginUser(credentials) {
             return response.data
         }
         return null
-    })
-        .catch(function (error) {
-            console.log(error);
+    }).catch(function (error) {
             return error;
         })
-   return null;
 }
 
 export const loginService = {

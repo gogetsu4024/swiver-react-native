@@ -6,7 +6,7 @@
  */
 
 export default {
-  // Example colors:
+  // User colors:
   white: '#ffffff',
   primary: '#0288D1',
   lightGrey: '#BDBDBD',

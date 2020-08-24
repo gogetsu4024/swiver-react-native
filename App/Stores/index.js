@@ -1,7 +1,7 @@
 import { combineReducers } from 'redux'
 import configureStore from './CreateStore'
 import rootSaga from 'App/Sagas'
-import { reducer as ExampleReducer } from './Example/Reducers'
+import { reducer as ExampleReducer } from './User/Reducers'
 import { reducer as SignInReducer } from './SignIn/Reducers'
 import NavigationService from "../Services/NavigationService";
 
@@ -20,10 +20,10 @@ export default () => {
 
 
   const rootReducer = (state, action) => {
-    //in case of logout clear all users
+    //in case of logout clear all users info
     if (action.type === 'USER_LOGGED_OUT') {
       state = undefined;
-          NavigationService.navigateAndReset('SignIn')
+      NavigationService.navigateAndReset('SignIn')
     }
 
     return appReducer(state, action);

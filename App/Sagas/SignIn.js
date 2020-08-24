@@ -1,5 +1,6 @@
 import { put, call } from 'redux-saga/effects'
 import SignInActions from 'App/Stores/SignIn/Actions'
+import UserTypes from 'App/Stores/User/Actions'
 import { loginService } from 'App/Services/LoginService'
 import NavigationService from 'App/Services/NavigationService'
 /**
@@ -19,7 +20,10 @@ export function* loginUser(action) {
     const response = yield call(loginService.loginUser,action.credentials)
     if (response.token) {
         yield put(SignInActions.loginUserSuccess(response))
-        NavigationService.navigateAndReset('StepsIndicator')
+
+        //fetch user information and companies
+        yield put(UserTypes.fetchUserInformation(response.token))
+
     } else {
         yield put(
             SignInActions.loginUserFailure(response.message)

@@ -12,53 +12,43 @@ import {
   StyleSheet,
   Dimensions,
   Image,
-  TouchableOpacity
+  TouchableOpacity,
+  FlatList,
+  SafeAreaView
 } from "react-native";
-
+import { useSelector } from 'react-redux'
 
 const { width } = Dimensions.get("screen");
 
 
 
 const Drawer = props => {
+  const renderItem = ({ item }) => (
+      <View style={{flexGrow : 0.15}}>
+        <TouchableOpacity onPress={() => {console.log("pressed 1")}}>
+          <Image style={styles.imageSideMenu}  source={Images.company1} />
+          <Text style={{color: Colors.white}}> A Design </Text>
+        </TouchableOpacity>
+      </View>
+  );
 
 
 
-  const items1 = [
-    {
-      "key":"ExampleScreen",
-      "params":"undefined",
-      "routeName":"ExampleScreen"
-    },
-  ];
-  const items2 = [
-    {
-      "key":"ExampleScreen",
-      "params":"undefined",
-      "routeName":"ExampleScreen"
-    },
-    {
-      "key":"Splash",
-      "params":"undefined",
-      "routeName":"Splash"
-    }
-  ];
+  const user = useSelector(state => state.example.user);
   let [menu, setMenu] = useState(props.items);
+
   return(
       <View style={{flex: 1 ,flexDirection: 'row'}} forceInset={{ top: 'always', horizontal: 'never' }}>
         <View style={styles.containerWrapper}>
-          <View style={{flex : 0.15}}>
-            <TouchableOpacity onPress={() => {setMenu(items1)}}>
-              <Image style={styles.imageSideMenu}  source={Images.company1} />
-              <Text style={{color: Colors.white}}> A Design </Text>
-            </TouchableOpacity>
-          </View>
-          <View style={{flex : 0.15}}>
-            <TouchableOpacity onPress={() => {setMenu(items2)}}>
-              <Image style={styles.imageSideMenu}  source={Images.company2} />
-              <Text style={{color: Colors.white}}> A Design </Text>
-            </TouchableOpacity>
-          </View>
+
+          <FlatList
+              contentContainerStyle={{flexGrow: 0.5, justifyContent: 'center'}}
+              data={user.companies}
+              renderItem={renderItem}
+              keyExtractor={item => item.id}
+          />
+
+
           <View style={{flex : 0.15}}>
             <TouchableOpacity onPress={() => {}}>
               <Image style={styles.imageSideMenu}  source={Images.addCompany} />

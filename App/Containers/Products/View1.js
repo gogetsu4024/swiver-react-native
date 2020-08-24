@@ -1,5 +1,5 @@
-import React from 'react'
-import {Text, View} from "react-native";
+import React,{ useState,useEffect } from "react";
+import {Text, View,RefreshControl} from "react-native";
 import styles from "./ProductsStyle";
 import {ScrollView} from "react-navigation";
 import {Avatar, Card,Divider} from "react-native-paper";
@@ -29,12 +29,29 @@ const actions = [
         position: 3
     },
 ];
+const wait = (timeout) => {
+    return new Promise(resolve => {
+        setTimeout(resolve, timeout);
+    });
+};
 
 const LeftContent = props => <Avatar.Icon {...props} size={36} icon="folder" />
 
-const FirstRoute = () => (
+const FirstRoute = () => {
+
+    const [refreshing, setRefreshing] = useState(false);
+
+    const onRefresh = React.useCallback(() => {
+        setRefreshing(true);
+
+        wait(2000).then(() => setRefreshing(false));
+    }, []);
+
+    return(
     <View style={styles.scene}>
-        <ScrollView >
+        <ScrollView refreshControl={
+            <RefreshControl refreshing={refreshing} onRefresh={onRefresh} />
+        } >
 
             <View style={{flex:0.3,marginTop:10,marginBottom:10}}>
                 <Text style={{marginLeft:20,color: "#797DA0"}}>Recent</Text>
@@ -84,5 +101,6 @@ const FirstRoute = () => (
             }}
         />
     </View>
-);
+)
+};
 export default FirstRoute;
