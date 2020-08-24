@@ -22,11 +22,11 @@ import ExampleStack from './RoutesStacks/ExampleStack'
 const  routeMap = {
 
 
-    Splash: {
+    Product: {
         screen: ProductStack,
         navigationOptions: navOpt => ({
             drawerLabel: ({ focused }) => (
-                <DrawerItem focused={focused} title="Splash" />
+                <DrawerItem focused={focused} title="Tableau de bord" />
             )
         }),
     },
@@ -34,10 +34,19 @@ const  routeMap = {
         screen: ExampleStack,
         navigationOptions: navOpt => ({
             drawerLabel: ({ focused }) => (
-                <DrawerItem focused={focused} title="ExampleScreen" />
+                <DrawerItem focused={focused} title="Vente" />
+            )
+        }),
+    },
+    LogOut: {
+        screen: SignIn,
+        navigationOptions: navOpt => ({
+            drawerLabel: ({ focused }) => (
+                <DrawerItem focused={focused} title="Se deconnecter de : Uix Design" />
             )
         }),
     }
+
 
 };
 
