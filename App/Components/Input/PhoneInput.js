@@ -13,11 +13,11 @@ import { Colors } from 'App/Theme';
 import styles from './PhoneInputStyle';
 import { Input } from 'native-base';
 import data from './Countries';
-import { Flag as SVG } from 'react-native-svg-flagkit';
+import MatIcon from 'react-native-vector-icons/MaterialCommunityIcons';
 
 function PhoneInput({ style }) {
 	// Default render of country flag
-	const defaultFlag = data.filter(obj => obj.name === 'Tunisia')[0].code;
+	const defaultFlag = data.filter(obj => obj.name === 'Tunisia')[0].flag;
 	const defaultDialCode = data.filter(obj => obj.name === 'Tunisia')[0]
 		.dial_code;
 
@@ -48,7 +48,7 @@ function PhoneInput({ style }) {
 			// Get the country flag
 			const countryFlag = await countryData.filter(
 				obj => obj.name === country
-			)[0].code;
+			)[0].flag;
 			// Update the state then hide the Modal
 			setDialCode(countryCode);
 			setFlag(countryFlag);
@@ -73,10 +73,10 @@ function PhoneInput({ style }) {
 
 	return (
 		<View style={[styles.container, style]}>
-			<View onPress={onPressFlag} style={[borderStyle, styles.flagContainer]}>
+			<TouchableOpacity onPress={onPressFlag} style={[borderStyle, styles.flagContainer]}>
 				{/* country flag */}
-				<SVG width={44} height={25} id={flag} onPress={onPressFlag} />
-			</View>
+				<Text style={{ fontSize: 28}}>{flag}</Text>
+			</TouchableOpacity>
 
 			<View style={[borderStyle, styles.inputContainer]}>
 				<Text style={styles.text}>{dialCode}</Text>
@@ -94,7 +94,17 @@ function PhoneInput({ style }) {
 				{/* Modal for country code and flag */}
 				<Modal animationType="slide" transparent={false} visible={modalVisible}>
 					<View style={{ flex: 1 }}>
-						<View style={{ flex: 7, marginTop: 80 }}>
+						<View style={{ flex: 7 }}>
+							<TouchableOpacity
+								onPress={() => hideModal()}
+								style={styles.closeButtonStyle}
+							>
+								<MatIcon
+									name="home"
+									size={30}
+									color={Colors.drawerItemLogoColor}
+								/>
+							</TouchableOpacity>
 							{/* Render the list of countries */}
 							<FlatList
 								data={countryData}
@@ -103,21 +113,34 @@ function PhoneInput({ style }) {
 									<TouchableWithoutFeedback
 										onPress={() => selectCountry(item.name)}
 									>
-										<View style={styles.countryStyle}>
-											<Text style={styles.textStyle}>
-												{item.flag} {item.name} ({item.dial_code})
+										<View
+											style={{
+												alignItems: 'center',
+												flex: 1,
+												flexDirection: 'row',
+												borderBottomWidth: 1,
+												borderBottomColor: Colors.lightGrey,
+												paddingVertical: 5,
+											}}
+										>
+											<Text style={{ fontSize: 24, marginHorizontal: 10 }}>
+												{item.flag}{' '}
 											</Text>
+											<Text
+												style={{
+													fontSize: 17,
+													fontWeight: 'bold',
+													marginRight: 5,
+												}}
+											>
+												{item.name}
+											</Text>
+											<Text style={{ fontSize: 16 }}>({item.dial_code})</Text>
 										</View>
 									</TouchableWithoutFeedback>
 								)}
 							/>
 						</View>
-						<TouchableOpacity
-							onPress={() => hideModal()}
-							style={styles.closeButtonStyle}
-						>
-							<Text style={styles.textStyle}>Cancel</Text>
-						</TouchableOpacity>
 					</View>
 				</Modal>
 			</View>
