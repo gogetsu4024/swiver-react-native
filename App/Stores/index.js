@@ -1,8 +1,9 @@
 import { combineReducers } from 'redux'
 import configureStore from './CreateStore'
 import rootSaga from 'App/Sagas'
-import { reducer as ExampleReducer } from './User/Reducers'
+import { reducer as UserReducer } from './User/Reducers'
 import { reducer as SignInReducer } from './SignIn/Reducers'
+import { reducer as ClientsReducer } from './Clients/Reducers'
 import NavigationService from "../Services/NavigationService";
 
 export default () => {
@@ -14,8 +15,9 @@ export default () => {
      * @see https://redux.js.org/api-reference/combinereducers
      */
     /* your app’s top-level reducers */
-    example: ExampleReducer,
+    user: UserReducer,
     signIn: SignInReducer,
+    clients: ClientsReducer,
   });
 
 

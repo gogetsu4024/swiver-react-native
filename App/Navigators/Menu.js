@@ -26,7 +26,7 @@ const { width } = Dimensions.get("screen");
 const Drawer = props => {
 
 
-  const user = useSelector(state => state.example.user);
+  const user = useSelector(state => state.user.user);
   let [menu, setMenu] = useState(props.items);
 
   const renderItem = ({ item }) => (

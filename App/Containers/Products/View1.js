@@ -1,13 +1,17 @@
 import React,{ useState,useEffect } from "react";
-import {Text, View,RefreshControl} from "react-native";
+import {Text, View, RefreshControl, FlatList} from "react-native";
 import styles from "./ProductsStyle";
 import {ScrollView} from "react-navigation";
-import {Avatar, Card,Divider} from "react-native-paper";
+import {Avatar, Button, Card, Divider} from "react-native-paper";
 import CardProduct from "App/Components/Cards/CardProduct"
 import CardFlatList from "App/Components/Cards/CardFlatList"
 import {FloatingAction} from "react-native-floating-action";
 import {Images} from 'App/Theme'
 import {CardWithIcon} from "App/Components/Cards/CardFlatListTypes"
+import { useSelector,useDispatch } from 'react-redux'
+import ClientsActions from 'App/Stores/Clients/Actions'
+
+
 
 const actions = [
     {
@@ -29,6 +33,24 @@ const actions = [
         position: 3
     },
 ];
+const getHeader = () => {
+    return (
+        <View style={{flex:0.3,marginTop:10,marginBottom:10}}>
+            <Text style={{marginLeft:20,color: "#797DA0"}}>Recent</Text>
+            <ScrollView horizontal={true}  >
+                <View style={styles.topScrollView}>
+                    <Button onPress={()=>console.log("yo")}/>
+                    <CardProduct name={"Swiver SA"}/>
+                    <CardProduct name={"Invest SA"}/>
+                    <CardProduct name={"Concise"}/>
+                    <CardProduct name={"yo"}/>
+
+                </View>
+
+            </ScrollView>
+        </View>
+    );
+};
 const wait = (timeout) => {
     return new Promise(resolve => {
         setTimeout(resolve, timeout);
@@ -41,66 +63,69 @@ const FirstRoute = () => {
 
     const [refreshing, setRefreshing] = useState(false);
 
+
+    const tokens = useSelector(state => state.signIn.tokens);
+
+    const currentCompany = useSelector(state => state.user.user.current_company);
+
+    const clients = useSelector(state => state.clients.clients);
+
+
+    const dispatch = useDispatch();
+
+    useEffect(() => {
+        dispatch(ClientsActions.fetchClients({tokens: tokens, currentCompany: currentCompany}))
+    },[tokens]);
+
+
+
+
     const onRefresh = React.useCallback(() => {
         setRefreshing(true);
-
-        wait(2000).then(() => setRefreshing(false));
+        dispatch(ClientsActions.fetchClients({tokens: tokens, currentCompany: currentCompany}));
+        wait(2000).then(() => {
+            setRefreshing(false);
+        });
     }, []);
 
     return(
-    <View style={styles.scene}>
-        <ScrollView refreshControl={
-            <RefreshControl refreshing={refreshing} onRefresh={onRefresh} />
-        } >
+        <View style={styles.scene}>
 
-            <View style={{flex:0.3,marginTop:10,marginBottom:10}}>
-                <Text style={{marginLeft:20,color: "#797DA0"}}>Recent</Text>
-                <ScrollView horizontal={true}  >
-                    <View style={styles.topScrollView}>
-                        <CardProduct name={"Swiver SA"}/>
-                        <CardProduct name={"Invest SA"}/>
-                        <CardProduct name={"Concise"}/>
-                        <CardProduct name={"yo"}/>
-                    </View>
+            <Card style={{borderRadius: 20,boxShadow:2,flex:1,margin:5}}>
 
-                </ScrollView>
-            </View>
-
-            <Card style={{borderRadius: 20,boxShadow:2,flex:0.7,margin:5}}>
-                <View style={styles.greyRectangle}>
-
+                <View style={{padding:2,flex:1}}  >
+                    <FlatList
+                        refreshControl={
+                            <RefreshControl refreshing={refreshing} onRefresh={onRefresh} />
+                        }
+                        ListHeaderComponent={getHeader}
+                        data={clients.rows}
+                        renderItem={({item, index})=>{
+                            return(
+                                !index?
+                                    <View>
+                                        <View style={styles.greyRectangle}>
+                                        </View>
+                                        <CardWithIcon data={item}/>
+                                    </View>
+                                    :
+                                    <CardWithIcon data={item}/>
+                            )
+                        }
+                        }
+                        keyExtractor={item => item.id.toString()}
+                    />
                 </View>
-                <ScrollView style={{padding:2,flex:1}}  >
 
-
-                    <CardWithIcon/>
-                    <Divider/>
-
-                    <CardWithIcon/>
-                    <Divider/>
-
-                    <CardWithIcon/>
-                    <Divider/>
-
-                    <CardWithIcon/>
-                    <Divider/>
-
-                    <CardWithIcon/>
-                    <Divider/>
-                </ScrollView>
-
+                <FloatingAction
+                    actions={actions}
+                    onPressItem={name => {
+                        console.log(`selected button: ${name}`);
+                    }}
+                />
             </Card>
 
-
-
-        </ScrollView>
-        <FloatingAction
-            actions={actions}
-            onPressItem={name => {
-                console.log(`selected button: ${name}`);
-            }}
-        />
-    </View>
-)
+        </View>
+    )
 };
 export default FirstRoute;

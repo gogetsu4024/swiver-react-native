@@ -10,8 +10,8 @@ const CardMinimal =() =>(
 const CardColoredStripes =() =>(
     <CardFlatList  rectangle firstText="Concise Consulting" secondText="Achraf Noomen" thirdText="12 000 000 DT" forthText="benefices"/>
 );
-const CardWithIcon =() =>(
-    <CardFlatList icon secondIcon  firstText="Concise Consulting" secondText="Achraf Noomen" thirdText="12 000 000 DT" forthText="chiffre d'affaire"/>
+const CardWithIcon =(props) =>(
+    <CardFlatList icon secondIcon  firstText={props.data.name} secondText="Achraf Noomen" thirdText="12 000 000 DT" forthText="chiffre d'affaire"/>
 );
 
 export {CardMinimal,CardColoredStripes,CardWithIcon}

@@ -2,8 +2,12 @@ import { takeLatest, all } from 'redux-saga/effects'
 import { UserTypes } from 'App/Stores/User/Actions'
 import { StartupTypes } from 'App/Stores/Startup/Actions'
 import { SignInTypes} from 'App/Stores/SignIn/Actions'
+import { ClientsTypes} from 'App/Stores/Clients/Actions'
+
+
 import { fetchUserInformation } from './User'
 import { loginUser } from './SignIn'
+import { fetchClientsInformation } from './Clients'
 import { startup } from './StartupSaga'
 
 export default function* root() {
@@ -18,5 +22,7 @@ export default function* root() {
 
 
     takeLatest(SignInTypes.LOGIN_USER, loginUser),
+
+    takeLatest(ClientsTypes.FETCH_CLIENTS, fetchClientsInformation),
   ])
 }

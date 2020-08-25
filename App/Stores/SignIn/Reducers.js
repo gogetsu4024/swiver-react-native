@@ -30,11 +30,8 @@ export const loginUserFailure = (state, { errorMessage }) => ({
 export const clearErrorMessage = (state) =>({
   ...state,
   loginErrorMessage: null,
-})
+});
 
-/**
- * @see https://github.com/infinitered/reduxsauce#createreducer
- */
 export const reducer = createReducer(INITIAL_STATE, {
   [SignInTypes.LOGIN_USER_LOADING]: loginUserLoading,
   [SignInTypes.LOGIN_USER_SUCCESS]: loginUserSuccess,
