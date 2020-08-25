@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import {Text, View} from "react-native";
-import styles from "./ProductsStyle";
+import styles from "../Products/ProductsStyle";
 import {FloatingAction} from "react-native-floating-action";
 import {Images, Colors} from 'App/Theme'
 import {ScrollView} from "react-navigation";
@@ -11,7 +11,7 @@ import {ChartConfig,data} from "App/Components/Chart/ChartConfig"
 import Icon from "react-native-vector-icons/AntDesign";
 import {
     LineChart,
-} from "react-native-chart-kit";
+} from "react-native-chart-kit/dist/index";
 import { Dimensions } from "react-native";
 
 
@@ -43,7 +43,7 @@ const actions = [
 
 
 
-const SecondRoute = () => {
+const FirstRoute = () => {
     const [dimensions, setDimensions] = useState({ window, screen });
     const onChange = ({ window, screen }) => {
         setDimensions({ window, screen });
@@ -127,4 +127,4 @@ const SecondRoute = () => {
 )
 };
 
-export default SecondRoute;
+export default FirstRoute;

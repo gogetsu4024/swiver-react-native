@@ -9,7 +9,7 @@ import { createDrawerNavigator,} from "react-navigation";
 import Menu from "./Menu";
 import DrawerItem from "./DrawerItems/DrawerItem";
 import ProductStack from './RoutesStacks/ProductsStack'
-import ExampleStack from './RoutesStacks/ExampleStack'
+import DashBoardStack from './RoutesStacks/DashBoardStack'
 /**
  * The root screen contains the application's navigation.
  *
@@ -22,16 +22,16 @@ import ExampleStack from './RoutesStacks/ExampleStack'
 const  routeMap = {
 
 
-    Product: {
-        screen: ProductStack,
+    DashBoard: {
+        screen: DashBoardStack,
         navigationOptions: navOpt => ({
             drawerLabel: ({ focused }) => (
                 <DrawerItem focused={focused} title="Tableau de bord" />
             )
         }),
     },
-    ExampleScreen: {
-        screen: ExampleStack,
+    Product: {
+        screen: ProductStack,
         navigationOptions: navOpt => ({
             drawerLabel: ({ focused }) => (
                 <DrawerItem focused={focused} title="Vente" />

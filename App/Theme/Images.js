@@ -11,4 +11,5 @@ export default {
   ic_accessibility_white: require('App/Assets/Images/ic_accessibility_white.png'),
   ic_language_white: require('App/Assets/Images/ic_language_white.png'),
   ic_room_white: require('App/Assets/Images/ic_room_white.png'),
+  no_data : require('App/Assets/Images/nodata.png'),
 }

@@ -1,5 +1,5 @@
 import React,{ useState,useEffect } from "react";
-import {Text, View, RefreshControl, FlatList, ActivityIndicator,Image} from "react-native";
+import {Text, View, RefreshControl, FlatList, ActivityIndicator, Image} from "react-native";
 import styles from "./ProductsStyle";
 import {ScrollView} from "react-navigation";
 import {Avatar, Button, Card, Divider} from "react-native-paper";
@@ -51,28 +51,27 @@ const getHeader = () => {
         </View>
     );
 };
-const data = []
-const listEmptyComponent = () => {
-    return (
-        <View>
-        <View style={[styles.greyRectangle,{backgroundColor: 'red',}]}>
-        </View>
-        <View style={{alignItems: "center"}}>
-            <Image resizeMode= 'contain' style={{width: 200,height:200}}  source={Images.no_data}/>
-            <Text style={{marginTop: 10}}>Aucune donnée disponible</Text>
-        </View>
-        </View>
-    )
-};
 const wait = (timeout) => {
     return new Promise(resolve => {
         setTimeout(resolve, timeout);
     });
 };
-
+const data = []
+const listEmptyComponent = () => {
+    return (
+        <View>
+            <View style={[styles.greyRectangle,{backgroundColor: 'red',}]}>
+            </View>
+            <View style={{alignItems: "center"}}>
+                <Image resizeMode= 'contain' style={{width: 200,height:200}}  source={Images.no_data}/>
+                <Text style={{marginTop: 10}}>Aucune donnée disponible</Text>
+            </View>
+        </View>
+    )
+};
 const LeftContent = props => <Avatar.Icon {...props} size={36} icon="folder" />
 
-const FirstRoute = () => {
+const SecondRoute = () => {
 
     const [refreshing, setRefreshing] = useState(false);
 
@@ -122,10 +121,10 @@ const FirstRoute = () => {
                         refreshControl={
                             <RefreshControl refreshing={refreshing} onRefresh={onRefresh} />
                         }
-                        ListHeaderComponent={getHeader}
                         ListEmptyComponent={listEmptyComponent}
+                        ListHeaderComponent={getHeader}
                         contentContainerStyle={{paddingLeft: 10, paddingRight: 10,}}
-                        data={clients.rows}
+                        data={data}
                         renderItem={({item, index})=>{
                             return(
                                 !index?
@@ -168,4 +167,4 @@ const FirstRoute = () => {
         </View>
     )
 };
-export default FirstRoute;
+export default SecondRoute;

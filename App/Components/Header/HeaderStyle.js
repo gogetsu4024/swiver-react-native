@@ -6,25 +6,28 @@ const styles = StyleSheet.create({
         width: "100%",
         height: 60,
         flexDirection: "row",
-        alignContent: "center",
-        justifyContent: "center",
-        backgroundColor: Colors.headerColor
+        backgroundColor: Colors.headerColor,
+        paddingTop: 5,
     },
     headerTitle: {
-        flexDirection: "row",
-        alignItems: "center",
-        alignContent: "center"
+        flex: 0.9,
+        flexDirection : "row",
+        justifyContent: "center",
+        alignItems: "center"
     },
     headerText: {
         fontWeight: "bold",
-        fontSize: 20,
-        color: "#333",
+        textAlign : "left",
+        fontFamily: "Montserrat",
+        fontSize: 24,
+        color: "#FFF",
         letterSpacing: 1,
     },
     icons: {
-        position: "absolute",
-        left: 16,
-        top: 15
+        flex: 0.1,
+        alignItems: "flex-start",
+        justifyContent: "center",
+        marginLeft:10
     }
 });
 
