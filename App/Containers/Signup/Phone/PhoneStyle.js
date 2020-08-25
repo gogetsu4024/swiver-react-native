@@ -6,10 +6,10 @@ container: {
   flex: 1,
   padding: 30,
   justifyContent: 'space-between',
-  backgroundColor: 'white'
+  backgroundColor: 'white',
 },
 subContainer: {
-  flex: 0.73,
+  flex: 0.76,
   flexDirection: 'column',
   justifyContent: 'space-between',
 },
@@ -19,6 +19,7 @@ text: {
   textAlign: 'center',
 },
 header : {
+  flex: 0.6,
   fontSize: 30,
   fontWeight: 'bold',
   color: Colors.primary,
