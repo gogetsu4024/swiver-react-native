@@ -4,6 +4,7 @@ import React, { useState } from 'react';
 import {
 	View,
 	Text,
+	TextInput,
 	TouchableOpacity,
 	TouchableWithoutFeedback,
 	Modal,
@@ -13,7 +14,7 @@ import { Colors } from 'App/Theme';
 import styles from './PhoneInputStyle';
 import { Input } from 'native-base';
 import data from './Countries';
-import MatIcon from 'react-native-vector-icons/MaterialCommunityIcons';
+import Icon from 'react-native-vector-icons/AntDesign';
 
 function PhoneInput({ style }) {
 	// Default render of country flag
@@ -26,6 +27,9 @@ function PhoneInput({ style }) {
 	const [dialCode, setDialCode] = useState(defaultDialCode);
 	const [isFocused, setFocused] = useState(false);
 	const [modalVisible, setModalVisible] = useState('');
+	const [countryData, setCountryData] = useState(data);
+
+  const arrayholder = data;
 
 	const handleFocus = () => setFocused(true);
 	const handleBlur = () => setFocused(false);
@@ -33,6 +37,8 @@ function PhoneInput({ style }) {
 	const showModal = () => setModalVisible(true);
 	const hideModal = () => {
 		setModalVisible(false);
+    setCountryData(arrayholder);
+
 		// Refocus on the Input field after selecting the country code
 		//phoneInput.current.focus();
 	};
@@ -58,13 +64,23 @@ function PhoneInput({ style }) {
 		}
 	};
 
-	const countryData = data;
-
 	const onPressFlag = () => {
 		showModal();
 	};
 
 	const onChangeText = value => setPhoneNumber(value);
+
+	const searchFilterFunction = text => {
+		//passing the inserted text in textinput
+		const newData = arrayholder.filter(function(item) {
+			//applying filter for the inserted text in search bar
+			const itemData = item.name ? item.name.toUpperCase() : ''.toUpperCase();
+			const textData = text.toUpperCase();
+			return itemData.indexOf(textData) > -1;
+		});
+
+		setCountryData(newData);
+	};
 
 	const borderStyle = {
 		borderColor: !isFocused ? Colors.lightGrey : Colors.primary,
@@ -73,9 +89,12 @@ function PhoneInput({ style }) {
 
 	return (
 		<View style={[styles.container, style]}>
-			<TouchableOpacity onPress={onPressFlag} style={[borderStyle, styles.flagContainer]}>
+			<TouchableOpacity
+				onPress={onPressFlag}
+				style={[borderStyle, styles.flagContainer]}
+			>
 				{/* country flag */}
-				<Text style={{ fontSize: 28}}>{flag}</Text>
+				<Text style={{ fontSize: 28 }}>{flag}</Text>
 			</TouchableOpacity>
 
 			<View style={[borderStyle, styles.inputContainer]}>
@@ -93,18 +112,30 @@ function PhoneInput({ style }) {
 
 				{/* Modal for country code and flag */}
 				<Modal animationType="slide" transparent={false} visible={modalVisible}>
-					<View style={{ flex: 1 }}>
-						<View style={{ flex: 7 }}>
-							<TouchableOpacity
-								onPress={() => hideModal()}
-								style={styles.closeButtonStyle}
+					<View>
+						<View>
+							<View
+								style={{
+									paddingTop: 10,
+									paddingHorizontal: 10,
+									flexDirection: 'row',
+									alignItems: 'center',
+								}}
 							>
-								<MatIcon
-									name="home"
-									size={30}
-									color={Colors.drawerItemLogoColor}
+								<TouchableOpacity
+									onPress={() => hideModal()}
+									style={{ marginRight: 10 }}
+								>
+									<Icon name="closesquare" size={30} color={Colors.primary} />
+								</TouchableOpacity>
+
+								<TextInput
+									onChangeText={text => searchFilterFunction(text)}
+									placeholder="Find country"
+									placeholderTextColor={Colors.lightGrey}
+									style={{ fontSize: 18, color: Colors.primary }}
 								/>
-							</TouchableOpacity>
+							</View>
 							{/* Render the list of countries */}
 							<FlatList
 								data={countryData}
