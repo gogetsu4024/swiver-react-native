@@ -2,6 +2,7 @@ import React,{ useState,useEffect } from "react";
 import { DrawerItems } from "react-navigation";
 import { Images, Colors } from 'App/Theme'
 import styles from './MenuStyles'
+
 import {
   Animated,
   Text
@@ -23,37 +24,43 @@ const { width } = Dimensions.get("screen");
 
 
 const Drawer = props => {
-  const renderItem = ({ item }) => (
-      <View style={{flexGrow : 0.15}}>
-        <TouchableOpacity onPress={() => {console.log("pressed 1")}}>
-          <Image style={styles.imageSideMenu}  source={Images.company1} />
-          <Text style={{color: Colors.white}}> A Design </Text>
-        </TouchableOpacity>
-      </View>
-  );
-
 
 
   const user = useSelector(state => state.example.user);
   let [menu, setMenu] = useState(props.items);
+
+  const renderItem = ({ item }) => (
+      <View style={{flexGrow : 0.15}}>
+        <TouchableOpacity  onPress={() => {console.log("pressed 1")}}>
+          {item.setting.logo ?
+              <Image style={styles.imageSideMenu}  source={ { uri : item.setting.logo.web_path  }} />:
+              <Image style={styles.imageSideMenu}  source={Images.company1} />
+          }
+          <Text style={user.current_company.name === item.name ?{color:Colors.blueViolet}:{color: Colors.white}}>{item.name}</Text>
+        </TouchableOpacity>
+      </View>
+  );
+
+  const addCompanyButton = () => (
+      <View style={{marginTop:10,marginBottom:10}}>
+        <TouchableOpacity onPress={() => {}}>
+          <Image style={styles.imageSideMenu}  source={Images.addCompany} />
+        </TouchableOpacity>
+      </View>
+  );
 
   return(
       <View style={{flex: 1 ,flexDirection: 'row'}} forceInset={{ top: 'always', horizontal: 'never' }}>
         <View style={styles.containerWrapper}>
 
           <FlatList
-              contentContainerStyle={{flexGrow: 0.5, justifyContent: 'center'}}
+              contentContainerStyle={{flexGrow: 1, justifyContent: 'center'}}
               data={user.companies}
               renderItem={renderItem}
-              keyExtractor={item => item.id}
+              keyExtractor={item => item.id.toString()}
+              ListFooterComponent ={addCompanyButton}
           />
 
-
-          <View style={{flex : 0.15}}>
-            <TouchableOpacity onPress={() => {}}>
-              <Image style={styles.imageSideMenu}  source={Images.addCompany} />
-            </TouchableOpacity>
-          </View>
         </View>
 
         <View style={{flex :0.05 , backgroundColor : Colors.drawerSeperator}}/>

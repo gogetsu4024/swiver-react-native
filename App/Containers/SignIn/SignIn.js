@@ -24,8 +24,8 @@ import {PropTypes} from "prop-types";
 class SignIn extends Component<Props> {
 
     state = {
-        username: '51868365',
-        password: 'Cab_25725410',
+        username: '',
+        password: '',
     };
 
     componentDidMount(){
