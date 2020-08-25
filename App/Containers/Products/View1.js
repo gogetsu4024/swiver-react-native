@@ -1,5 +1,5 @@
 import React,{ useState,useEffect } from "react";
-import {Text, View, RefreshControl, FlatList} from "react-native";
+import {Text, View, RefreshControl, FlatList, ActivityIndicator} from "react-native";
 import styles from "./ProductsStyle";
 import {ScrollView} from "react-navigation";
 import {Avatar, Button, Card, Divider} from "react-native-paper";
@@ -35,7 +35,7 @@ const actions = [
 ];
 const getHeader = () => {
     return (
-        <View style={{flex:0.3,marginTop:10,marginBottom:10}}>
+        <View style={{ backgroundColor: '#F7F8FA',flex:0.3,marginTop:10,marginBottom:10}}>
             <Text style={{marginLeft:20,color: "#797DA0"}}>Recent</Text>
             <ScrollView horizontal={true}  >
                 <View style={styles.topScrollView}>
@@ -70,6 +70,8 @@ const FirstRoute = () => {
 
     const clients = useSelector(state => state.clients.clients);
 
+    const clientsLoading = useSelector(state => state.clients.clientsLoading);
+
 
     const dispatch = useDispatch();
 
@@ -88,13 +90,22 @@ const FirstRoute = () => {
         });
     }, []);
 
+
+    if (clientsLoading) {
+        return (
+            <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
+                <ActivityIndicator />
+            </View>
+        );
+    }
     return(
         <View style={styles.scene}>
 
-            <Card style={{borderRadius: 20,boxShadow:2,flex:1,margin:5}}>
+            <Card style={{borderRadius: 20,boxShadow:2,flex:1}}>
 
                 <View style={{padding:2,flex:1}}  >
                     <FlatList
+
                         refreshControl={
                             <RefreshControl refreshing={refreshing} onRefresh={onRefresh} />
                         }
@@ -107,6 +118,20 @@ const FirstRoute = () => {
                                         <View style={styles.greyRectangle}>
                                         </View>
                                         <CardWithIcon data={item}/>
+                                        <Divider/>
+                                        <CardWithIcon data={item}/>
+                                        <Divider/>
+                                        <CardWithIcon data={item}/>
+                                        <Divider/>
+                                        <CardWithIcon data={item}/>
+                                        <Divider/>
+                                        <CardWithIcon data={item}/>
+                                        <Divider/>
+                                        <CardWithIcon data={item}/>
+                                        <Divider/>
+                                        <CardWithIcon data={item}/>
+                                        <Divider/>
+
                                     </View>
                                     :
                                     <CardWithIcon data={item}/>

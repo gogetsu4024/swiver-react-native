@@ -14,7 +14,7 @@ export default class Personal extends Component {
 
   _onPress = () => {
     this.props._nextStep(1);
-  }
+  };
 
   render() {
     const B = (props) => <Text style={{fontWeight: 'bold', fontSize: 12}}>{props.children}</Text>
