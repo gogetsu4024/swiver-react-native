@@ -11,8 +11,8 @@ import {
 } from 'react-native-tab-view';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import styles from 'App/Containers/Products/ProductsStyle'
-import FirstRoute from './View1'
-import SecondRoute from './View3'
+import FirstRoute from 'App/Containers/Example/DashBoardFirstScreen'
+import SecondRoute from 'App/Containers/Products/View3'
 
 
 
@@ -23,7 +23,7 @@ const initialLayout = { width: Dimensions.get('window').width };
 
 
 
-export default function Products() {
+export default function DashBoard() {
     const [index, setIndex] = React.useState(0);
     const [routes] = React.useState([
         { key: 'first', title: 'Clients', icon: 'users' },

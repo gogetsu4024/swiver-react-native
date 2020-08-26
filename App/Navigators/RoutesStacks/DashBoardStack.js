@@ -1,19 +1,19 @@
 import React from "react";
 import {createStackNavigator} from "react-navigation";
-import ExampleScreen from 'App/Containers/Example/ExampleScreen'
+import DashBoard from 'App/Containers/Example/DashBoard'
 import Header from "App/Components/Header/Header"
 
 
-const ExampleStack = createStackNavigator({
+const DashBoardStack = createStackNavigator({
     HomeScreen: {
-        screen: ExampleScreen,
+        screen: DashBoard,
         navigationOptions: ({ navigation }) => {
             return {
                 header: () => (
-                    <Header title = "ExampleScreen" hasBackButton={false} navigation={navigation} />
+                    <Header title = "Tableau de Bord" hasBackButton={false} navigation={navigation} />
                 )
             };
         }
     }
 });
-export default ExampleStack
+export default DashBoardStack

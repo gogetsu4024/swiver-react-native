@@ -12,10 +12,25 @@ const Header = ({ navigation, title }) => {
       <View style={styles.header}>
         {/* icon for the menu */}
         <TouchableOpacity onPress={openMenu} style={styles.icons}>
-          <Icon name="home" size={30} color="white"  />
+          <Icon name="navicon" size={24} color="white"  />
         </TouchableOpacity>
         <View style={styles.headerTitle}>
+            <View style={{flex: 0.8}}>
           <Text style={styles.headerText}>{title}</Text>
+            </View>
+                <TouchableOpacity onPress={openMenu} style={{ flex: 0.1,
+                    alignItems: "flex-start",
+                    justifyContent: "center",
+                    }}>
+                <Icon name="search" size={22} color="white"  />
+            </TouchableOpacity>
+            <TouchableOpacity onPress={openMenu} style={{ flex: 0.1,
+                marginLeft:5,
+                alignItems: "flex-start",
+                justifyContent: "center",
+            }}>
+                <Icon name="cog" size={22} color="white"  />
+            </TouchableOpacity>
         </View>
       </View>
   );
