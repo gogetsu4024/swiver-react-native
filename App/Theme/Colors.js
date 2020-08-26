@@ -10,6 +10,7 @@ export default {
   white: '#ffffff',
   primary: '#0288D1',
   lightGrey: '#BDBDBD',
+  grey: '#4F4F4F',
   success: '#28a745',
   background: '#1F0808',
   clear: 'rgba(0,0,0,0)',

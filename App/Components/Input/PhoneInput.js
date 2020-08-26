@@ -30,9 +30,9 @@ function PhoneInput({ style }) {
 		myInput.current.focus();
 	};
 
-	const selectCountryCallback = (countryCode, countryFlag) => {
-		setDialCode(countryCode);
-		setFlag(countryFlag);
+	const selectCountryCallback = (selectedCountry) => {
+		setDialCode(selectedCountry.code);
+		setFlag(selectedCountry.flag);
 	};
 
 	// todo: check if value is numeric before updating

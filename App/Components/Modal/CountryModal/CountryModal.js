@@ -44,10 +44,18 @@ function CountryModal({
 			const countryCode = countryData.filter(obj => obj.name === country)[0]
 				.dial_code;
 			// Get the country flag
+			const countryName = countryData.filter(obj => obj.name === country)[0]
+				.name;
+			// Get the country name
 			const countryFlag = countryData.filter(obj => obj.name === country)[0]
 				.code;
 			// Update the state then hide the Modal
-			selectCountryCallback(countryCode, countryFlag);
+			const selectedCountry = {
+				'code': countryCode,
+				'flag': countryFlag,
+				'name': countryName
+			}
+			selectCountryCallback(selectedCountry);
 			hideModal();
 		} catch (err) {
 			console.log(err);

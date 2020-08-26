@@ -43,7 +43,7 @@ const TextDropdown = ({label, data, style}) => {
              </Text>
       <Picker
         selectedValue={selectedValue}
-        style={{ height: 45, marginLeft: 5 }}
+        style={{ height: 45, marginLeft: 5, color: selectedValue===''? 'white' : Colors.grey }}
         onValueChange={(itemValue, itemIndex) => onValueChange(itemValue)}
       >
         {data.map(value => {

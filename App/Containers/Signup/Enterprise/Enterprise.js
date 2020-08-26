@@ -11,6 +11,7 @@ import { TextInput } from 'react-native-paper';
 import styles from './EnterpriseStyle';
 
 import TextDropdown from "App/Components/Dropdown/TextDropdown";
+import CountryPicker from "App/Components/Picker/CountryPicker/CountryPicker";
 import data from './Activities';
 import currencies from './Currencies';
 
@@ -51,9 +52,8 @@ export default class Enterprise extends Component {
               label={"Activité de l'entreprise"}
               data={data}/>
 
-            <TextInput
+            <CountryPicker
             style={{height: 45, marginBottom: 12}}
-            mode='outlined'
             label="Pays"
             />
 

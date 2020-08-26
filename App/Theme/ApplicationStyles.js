@@ -13,7 +13,8 @@ export default {
       ...DefaultTheme.colors,
       primary: Colors.primary,
       background: Colors.white,
-      placeholder : Colors.lightGrey
+      placeholder : Colors.lightGrey,
+      text: Colors.grey
     },
   },
 
